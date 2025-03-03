@@ -1,0 +1,44 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          nitrodash
+# Required-Start:    $all
+# Required-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:
+# Short-Description: LCD Display
+### END INIT INFO
+
+DESC="Nitrodash"
+NITRODASH_BIN="/home/ubuntu/nitrodash/nitrodash/nitrodash"
+NITRODASH_PID="/var/run/nitrodash.pid"
+
+case "$1" in
+  start)
+    echo "Starting $DESC"
+
+    start-stop-daemon --verbose --start --background --user root \
+	--exec /usr/bin/env \
+	QT_QPA_PLATFORM="linuxfb:fb=/dev/fb0" \
+	QT_QPA_GENERIC_PLUGINS="tslib:/dev/input/event2" \
+	LD_LIBRARY_PATH="/home/ubuntu/nitrodash/nitrodash" \
+        $NITRODASH_BIN \
+        --make-pidfile --pidfile $NITRODASH_PID
+    ;;
+  stop)
+    echo "Stopping $DESC" 
+    start-stop-daemon --stop --pidfile $NITRODASH_PID --retry 10
+    ;;
+  restart)
+    $0 stop
+    sleep 1
+    $0 start
+    ;;
+  status)
+    echo -n "Status of $DESC: "
+    start-stop-daemon --status --pidfile $NITRODASH_PID
+    ;;
+esac
+
+exit 0
+
+

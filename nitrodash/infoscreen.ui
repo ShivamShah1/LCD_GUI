@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>InfoScreen</class>
+ <widget class="QDialog" name="InfoScreen">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>480</width>
+    <height>272</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>480</width>
+    <height>272</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>480</width>
+    <height>272</height>
+   </size>
+  </property>
+  <property name="baseSize">
+   <size>
+    <width>480</width>
+    <height>272</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgba(30, 30, 30, 255);</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>291</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgba(255, 255, 255, 255);
+font: 24px &quot;DejaVu Sans&quot;;</string>
+   </property>
+   <property name="text">
+    <string>System Info</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="exitButton">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>0</y>
+     <width>160</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>160</width>
+     <height>60</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>160</width>
+     <height>60</height>
+    </size>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgba(200, 200, 150, 255);
+background: qradialgradient(cx:.4, cy:.2, radius:1, fx:.5, fy:.3, stop:.2 rgba(70, 70, 70, 255), stop:.9 rgba(20, 20, 20, 255));
+border-style: solid;
+border-width: 3px;
+border-radius: 30px;
+border-color: rgba(115, 115, 95, 255);
+font: 18px &quot;DejaVu Sans&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>90</y>
+     <width>305</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="label_2">
+      <property name="styleSheet">
+       <string notr="true">color: rgba(255, 255, 255, 255);
+font: 18px &quot;DejaVu Sans&quot;;</string>
+      </property>
+      <property name="text">
+       <string>ARM i.mx8 CPU</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_3">
+      <property name="styleSheet">
+       <string notr="true">color: rgba(255, 255, 255, 255);
+font: 18px &quot;DejaVu Sans&quot;;</string>
+      </property>
+      <property name="text">
+       <string>2 GB DDR3</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_4">
+      <property name="styleSheet">
+       <string notr="true">color: rgba(255, 255, 255, 255);
+font: 18px &quot;DejaVu Sans&quot;;</string>
+      </property>
+      <property name="text">
+       <string>8 GB eMMC</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_5">
+      <property name="styleSheet">
+       <string notr="true">color: rgba(255, 255, 255, 255);
+font: 18px &quot;DejaVu Sans&quot;;</string>
+      </property>
+      <property name="text">
+       <string>LoRa gateway</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_6">
+      <property name="styleSheet">
+       <string notr="true">color: rgba(255, 255, 255, 255);
+font: 18px &quot;DejaVu Sans&quot;;</string>
+      </property>
+      <property name="text">
+       <string>LoRa operating band: 915MHz US</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>330</x>
+     <y>210</y>
+     <width>151</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources.qrc">:/rsrc/logo.png</pixmap>
+   </property>
+  </widget>
+  <zorder>label_7</zorder>
+  <zorder>label</zorder>
+  <zorder>exitButton</zorder>
+  <zorder>layoutWidget</zorder>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>exitButton</sender>
+   <signal>clicked()</signal>
+   <receiver>InfoScreen</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>405</x>
+     <y>29</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>401</x>
+     <y>87</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
